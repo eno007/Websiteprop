@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Use - Prop Firm</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Additional styles for the Terms of Use page */
+        .terms-container {
+            display: flex;
+            width: 100%;
+            min-height: calc(100vh - 100px); /* Adjust for header/footer height */
+        }
+
+        .terms-list {
+            width: 30%;
+            background-color: #f8f8f8;
+            padding: 20px;
+            border-right: 1px solid #ddd;
+            box-sizing: border-box;
+        }
+
+        .terms-list h2 {
+            margin-top: 0;
+        }
+
+        .terms-list ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .terms-list li {
+            padding: 10px 0;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        .terms-list li:hover {
+            background-color: #eee;
+        }
+
+        .terms-content {
+            width: 70%;
+            padding: 20px;
+            box-sizing: border-box;
+            position: relative;
+            overflow: hidden; /* Hide content that slides out */
+        }
+
+        .terms-content-inner {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            transition: transform 0.5s ease-in-out;
+            transform: translateX(100%); /* Initially off-screen to the right */
+        }
+
+        .terms-content-inner.active {
+            transform: translateX(0); /* Slide in from the right */
+        }
+        .terms-content-inner.inactive {
+            transform: translateX(100%); /* Slide out to the right */
+        }
+        .terms-content-inner h3 {
+            margin-top: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Prop Firm Dashboard</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="termsofuse.html">Terms of Use</a></li>
+                    <li><a href="Aboutus.html">About us</a></li>
+                    <li><a href="Affiliate.html">Affiliate Program</a></li>
+                    <li><a href="FAQ.html">FAQ</a></li>
+                    <li><a href="login.html">Logout</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container terms-container">
+        <div class="terms-list">
+            <h2>Terms of Use</h2>
+            <ul>
+                <li data-content="content1">Account Eligibility</li>
+                <li data-content="content2">Trading Rules</li>
+                <li data-content="content3">Profit Sharing</li>
+                <li data-content="content4">Risk Management</li>
+                <li data-content="content5">Data Privacy</li>
+                <li data-content="content6">Intellectual Property</li>
+                <li data-content="content7">Termination</li>
+                <li data-content="content8">Disclaimers</li>
+                <li data-content="content9">Amendments</li>
+                <li data-content="content10">Governing Law</li>
+            </ul>
+        </div>
+        <div class="terms-content">
+            <div id="content1" class="terms-content-inner">
+                <h3>Account Eligibility</h3>
+                <p>This section outlines the requirements for opening and maintaining an account with our prop firm. It includes age restrictions, residency requirements, and any other criteria for eligibility.</p>
+            </div>
+            <div id="content2" class="terms-content-inner">
+                <h3>Trading Rules</h3>
+                <p>Here, we detail the specific rules that traders must adhere to while trading with our firm's capital. This includes restrictions on trading strategies, instruments, and any prohibited activities.</p>
+            </div>
+            <div id="content3" class="terms-content-inner">
+                <h3>Profit Sharing</h3>
+                <p>This section explains how profits are divided between the trader and the prop firm. It includes the percentage split, payout schedules, and any conditions for receiving profits.</p>
+            </div>
+            <div id="content4" class="terms-content-inner">
+                <h3>Risk Management</h3>
+                <p>We outline our risk management policies, including maximum drawdown limits, daily loss limits, and other measures to protect the firm's capital.</p>
+            </div>
+            <div id="content5" class="terms-content-inner">
+                <h3>Data Privacy</h3>
+                <p>This section describes how we collect, use, and protect the personal and trading data of our clients. It includes our commitment to data security and compliance with privacy regulations.</p>
+            </div>
+            <div id="content6" class="terms-content-inner">
+                <h3>Intellectual Property</h3>
+                <p>Here, we define the ownership of our proprietary trading tools, platforms, and educational materials. It includes restrictions on the use and distribution of our intellectual property.</p>
+            </div>
+            <div id="content7" class="terms-content-inner">
+                <h3>Termination</h3>
+                <p>This section outlines the conditions under which an account may be terminated, either by the trader or the prop firm. It includes the procedures for account closure and the handling of any remaining funds.</p>
+            </div>
+            <div id="content8" class="terms-content-inner">
+                <h3>Disclaimers</h3>
+                <p>We provide disclaimers regarding the risks of trading, the limitations of our services, and any other legal disclaimers that apply to our relationship with traders.</p>
+            </div>
+            <div id="content9" class="terms-content-inner">
+                <h3>Amendments</h3>
+                <p>This section explains how we may update or modify these terms of use. It includes the process for notifying traders of changes and the effective date of any amendments.</p>
+            </div>
+            <div id="content10" class="terms-content-inner">
+                <h3>Governing Law</h3>
+                <p>Here, we specify the jurisdiction and laws that govern our relationship with traders and the interpretation of these terms of use.</p>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Prop Firm Name</p>
+        </div>
+    </footer>
+
+    <script>
+        const listItems = document.querySelectorAll('.terms-list li');
+        const contentDivs = document.querySelectorAll('.terms-content-inner');
+
+        listItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const contentId = item.dataset.content;
+                const targetDiv = document.getElementById(contentId);
+
+                // Hide all content divs
+                contentDivs.forEach(div => {
+                    div.classList.remove('active');
+                    div.classList.add('inactive');
+                });
+
+                // Show the selected content div
+                if (targetDiv) {
+                    targetDiv.classList.remove('inactive');
+                    targetDiv.classList.add('active');
+                }
+            });
+        });
+        // Show the first content div by default
+        if (contentDivs.length > 0) {
+            contentDivs[0].classList.add('active');
+        }
+    </script>
+</body>
+</html>
