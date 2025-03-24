@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Prop Firm</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* ... (your existing CSS) ... */
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2>Login</h2>
+        <form id="loginForm" action="index.html" method="get">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit" class="login-button">Login</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById("loginForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            // Here you would normally validate the form data (e.g., check username/password)
+            // For this example, we'll just assume it's successful and redirect
+
+            // Redirect to the desired page
+            window.location.href = "dashboard.html"; // Replace with your desired page
+        });
+    </script>
+</body>
+</html>

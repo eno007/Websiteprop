@@ -1,0 +1,130 @@
+{% extends 'main_app/base.html' %}
+{% load static %}
+
+{% block title %}FAQ - Prop Firm{% endblock %}
+
+{% block header %}
+    <a href="{% url 'index' %}" class="logo">Get Funded</a>
+    <nav>
+        <ul>
+            <li><a href="{% url 'index' %}">Home</a></li>
+            <li><a href="{% url 'termsofuse' %}">Terms of Use</a></li>
+            <li><a href="{% url 'aboutus' %}">About Us</a></li>
+            <li><a href="{% url 'affiliate' %}">Affiliate Program</a></li>
+            <li><a href="{% url 'faq' %}">FAQ</a></li>
+            <li><a href="{% url 'login' %}">Dashboard</a></li>
+            <li><a href="{% url 'buychallenge' %}" class="button button-green">Buy Challenge</a></li>
+        </ul>
+    </nav>
+{% endblock %}
+
+{% block content %}
+    <section class="faq-page">
+        <div class="container">
+            <div class="faq-search">
+                <input type="text" id="faq-search-input" placeholder="Search for answers...">
+            </div>
+
+            <div class="faq-categories">
+                <h2>Frequently Asked Questions</h2>
+                <div class="faq-category" id="general-category">
+                    <h3>General</h3>
+                    <div class="faq-items">
+                        <div class="faq-item">
+                            <h4 class="faq-question">What is a prop firm?</h4>
+                            <div class="faq-answer">
+                                <p>A prop firm is a company that trades its own capital and shares the profits with its traders.</p>
+                                <div class="feedback">
+                                    <p>Was this helpful?</p>
+                                    <button class="feedback-button yes">Yes</button>
+                                    <button class="feedback-button no">No</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <h4 class="faq-question">How do I get funded?</h4>
+                            <div class="faq-answer">
+                                <p>You need to pass our trading challenge to get funded.</p>
+                                <div class="feedback">
+                                    <p>Was this helpful?</p>
+                                    <button class="feedback-button yes">Yes</button>
+                                    <button class="feedback-button no">No</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <h4 class="faq-question">What are the profit splits?</h4>
+                            <div class="faq-answer">
+                                <p>We offer high profit splits, allowing you to keep a significant portion of your profits.</p>
+                                <div class="feedback">
+                                    <p>Was this helpful?</p>
+                                    <button class="feedback-button yes">Yes</button>
+                                    <button class="feedback-button no">No</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-category" id="challenge-category">
+                    <h3>Challenges</h3>
+                    <div class="faq-items">
+                        <div class="faq-item">
+                            <h4 class="faq-question">What are the rules of the challenge?</h4>
+                            <div class="faq-answer">
+                                <p>The rules of the challenge are...</p>
+                                <div class="feedback">
+                                    <p>Was this helpful?</p>
+                                    <button class="feedback-button yes">Yes</button>
+                                    <button class="feedback-button no">No</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <h4 class="faq-question">How long do I have to complete the challenge?</h4>
+                            <div class="faq-answer">
+                                <p>You have X days to complete the challenge.</p>
+                                <div class="feedback">
+                                    <p>Was this helpful?</p>
+                                    <button class="feedback-button yes">Yes</button>
+                                    <button class="feedback-button no">No</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Add more categories here -->
+            </div>
+            <div class="contact-support">
+                <p>Still have questions? <a href="#">Contact Support</a></p>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block footer %}
+    <div class="footer-links">
+        <a href="{% url 'termsofuse' %}">Terms of Use</a>
+        <a href="{% url 'aboutus' %}">About Us</a>
+        <a href="{% url 'faq' %}">FAQ</a>
+        <a href="{% url 'affiliate' %}">Affiliate Program</a>
+    </div>
+    <div class="social-icons">
+        <a href="#" target="_blank"><img src="{% static 'main_app/images/facebook.svg' %}" alt="Facebook"></a>
+        <a href="#" target="_blank"><img src="{% static 'main_app/images/twitter.svg' %}" alt="Twitter"></a>
+        <a href="#" target="_blank"><img src="{% static 'main_app/images/instagram.svg' %}" alt="Instagram"></a>
+    </div>
+    <p>&copy; 2023 Prop Firm Name. All rights reserved.</p>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const faqItems = document.querySelectorAll('.faq-item');
+
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            const answer = item.querySelector('.faq-answer');
+
+            answer.style.display = 'none'; // Initially hide answers
+    });})
+            

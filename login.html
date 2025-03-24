@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - Prop Firm</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         body {
             display: flex;
@@ -12,6 +13,7 @@
             align-items: center;
             min-height: 100vh;
             background-color: #f0f0f0;
+            font-family: 'Inter', sans-serif; /* Added font-family */
         }
 
         .login-container {
@@ -25,6 +27,7 @@
         .login-container h2 {
             text-align: center;
             margin-bottom: 20px;
+            color: #2c3e50; /* Added color */
         }
 
         .form-group {
@@ -34,6 +37,8 @@
         .form-group label {
             display: block;
             margin-bottom: 5px;
+            font-weight: 500; /* Added font-weight */
+            color: #333; /* Added color */
         }
 
         .form-group input {
@@ -42,26 +47,31 @@
             border: 1px solid #ccc;
             border-radius: 3px;
             box-sizing: border-box;
+            font-size: 16px; /* Added font-size */
         }
 
         .login-button {
             width: 100%;
-            background-color: #2c3e50;
+            background-color: #27ae60; /* Changed color */
             color: #fff;
             border: none;
-            padding: 10px;
+            padding: 12px; /* Increased padding */
             border-radius: 3px;
             cursor: pointer;
+            font-size: 16px; /* Added font-size */
+            font-weight: 600; /* Added font-weight */
+            transition: background-color 0.3s ease; /* Added transition */
         }
+
         .login-button:hover {
-            background-color: #1a252f;
+            background-color: #1e8449; /* Changed color */
         }
     </style>
 </head>
 <body>
     <div class="login-container">
         <h2>Login</h2>
-        <form action="index.html" method="get">
+        <form id="loginForm" action="index.html" method="get">
             <div class="form-group">
                 <label for="username">Username</label>
                 <input type="text" id="username" name="username" required>
@@ -73,5 +83,11 @@
             <button type="submit" class="login-button">Login</button>
         </form>
     </div>
+    <script>
+        document.getElementById("loginForm").addEventListener("submit", function(event) {
+            event.preventDefault(); 
+            window.location.href = "dashboard.html"; 
+        });
+    </script>
 </body>
 </html>
